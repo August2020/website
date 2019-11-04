@@ -1,0 +1,3 @@
+CREATE VIEW zamowienie AS 
+SELECT k.imie+' '+k.nazwisko AS Imie_Nazwisko, k.Adres AS Adres_Dostawy, k.KodPocztowy AS Kod_Pocztowy,
+z.DataZamowienia AS Data_Zamowienia, z.PrzewidywanaDataDostawy AS Przewidywana_Data_Dostawy, z.KwotaZamowienia AS Kwota_Zamowienia, z.RodzajPlatnosci AS Rodzaj_Platnosci, z.RodzajDostawy AS Rodzaj_Dostawy, z.StatusZamowienia AS Status_Zamowienia FROM klienci k INNER JOIN zamowienia z ON k.idKlienci=z.idZamowienia
