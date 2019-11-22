@@ -1,7 +1,8 @@
 <head>
 </head>
 <body>
-<?php $uri = basename($_SERVER['SCRIPT_NAME']); 
+<?php
+$uri = basename($_SERVER['SCRIPT_NAME']); 
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -12,8 +13,19 @@
   <div class="row">
     <div class="col-md-12">
     <a class="navbar-brand" href="#">KRAS</a>
-      <button type="button" class="btn btn-primary btn-sm p-2 mr-2">Logowanie</button>
-      <button type="button" class="btn btn-secondary btn-sm p-2 mr-2">Rejestracja</button>
+      <?php
+      if(!isset($_SESSION['username'])){
+        echo '
+        <button type="button" class="btn btn-primary btn-sm p-2 mr-2"><a href="logowanie.php" class=" text-white text-decoration-none">Logowanie</a></button>
+        <button type="button" class="btn btn-secondary btn-sm p-2 mr-2">Rejestracja</button>  
+        ';
+      }
+      else if(isset($_SESSION['username'])){
+        var_dump($_SESSION['username']);
+      }
+      
+      ?>
+      
   </div>
 
   <div class="col-md-12">
