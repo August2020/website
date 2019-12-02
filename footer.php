@@ -2,7 +2,7 @@
 <div class=" w-100 p-0 ml-0 mr-0 text-white">
     <div class="row w-100 ml-0 mr-0">
         <div class="col-xs-12 bg-dark w-100 mr-0 ml-0"><h2>
-    Kontakt: Ikonka telefonu + telefon | Ikonka maila + mail:to 
+    Kontakt: <i class="fa fa-phone text-white"></i> + +48 123 123 123 | <i class="fa fa-envelope text-white"></i> + mail:to 
     </h2></div>
     </div>
     <div class="row bg-white text-dark mr-0 ml-0 p-2">
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="row mr-0 ml-0">
-        <div class="col-xs-12 bg-dark w-100 mr-0 ml-0 text-center">
+        <div class="col-xs-12 w-100 mr-0 ml-0 text-center">
            Copyright &copy; KRAS S.A. Wszelkie prawa zastrzeżone.
     </div>
     </div>

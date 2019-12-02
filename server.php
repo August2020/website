@@ -19,10 +19,15 @@ if(isset($_POST['login'])){
 	$password = MD5($_POST['password']);
 	
 	$sql = "select * from klienci where Email='$username' and Haslo='$password'";
-	mysqli_query($connect, $sql);
+	$query = mysqli_query($connect, $sql);
 
-	$_SESSION['username'] = $username;
-	header('location: index.php');
+	if(mysqli_num_rows($query) > 0){
+		$_SESSION['username'] = $username;
+		header('location: index.php');
+	}
+	else{
+		header('location: logowanie.php');
+	}
 }
 
 ?>

@@ -17,13 +17,19 @@ $uri = basename($_SERVER['SCRIPT_NAME']);
       if(!isset($_SESSION['username'])){
         echo '
         <button type="button" class="btn btn-primary btn-sm p-2 mr-2"><a href="logowanie.php" class=" text-white text-decoration-none">Logowanie</a></button>
-        <button type="button" class="btn btn-secondary btn-sm p-2 mr-2">Rejestracja</button>  
+        <button type="button" class="btn btn-secondary btn-sm p-2 mr-2"><a href="rejestracja.php" class="text-white text-decoration-none"> Rejestracja</a></button>  
         ';
       }
       else if(isset($_SESSION['username'])){
-        var_dump($_SESSION['username']);
+        echo $_SESSION['username'];
+        echo '<a href="index.php?wyloguj=1"> wyloguj</a>';
+
       }
-      
+      if(isset($_GET['wyloguj'])){
+        SESSION_UNSET();
+        unset($_SESSION['username']);
+        header('Location: index.php');
+      }
       ?>
       
   </div>
@@ -71,6 +77,8 @@ $uri = basename($_SERVER['SCRIPT_NAME']);
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Napisz czego szukasz?" aria-label="Szukaj">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Szukaj</button>
+          <button class="btn btn-primary btn-lg m-2"><i class="fa fa-shopping-cart"></i></dutton>
+          <!--<button href="zamowienia.php" class="btn btn-primary btn-lg m-2"><i class="<i class="fa fa-cart-arrow-down"></i>"></i></dutton>-->
           </form>
         </li>
       </ul>

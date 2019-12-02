@@ -9,22 +9,29 @@
 <div class="container w-50">
 <div class="card">
 <article class="card-body">
-<a href="rejestracja.php" class="float-right btn btn-outline-primary">Rejestracja</a>
-<h4 class="card-title mb-4 mt-1">Zaloguj się</h4>
+<a href="rejestracja.php" class="float-right btn btn-outline-primary">Logowanie</a>
+<h4 class="card-title mb-4 mt-1">Zarejestruj się</h4>
 	 <form action="logowanie.php" method="POST">
     <div class="form-group">
     	<label>Email</label>
         <input class="form-control" placeholder="Email" type="email" name="username">
     </div> <!-- form-group// -->
     <div class="form-group">
+    	<label>Imie</label>
+        <input class="form-control" placeholder="Imie" type="text" name="username">
+    </div>
+    <div class="form-group">
+    	<label>Nazwisko</label>
+        <input class="form-control" placeholder="Nazwisko" type="text" name="username">
+    </div>
+    <div class="form-group">
     	<label>Hasło:</label>
         <input class="form-control" placeholder="******" type="password"  name="password">
-    	<a class="float-right" href="#">Nie potrafisz się zalogować?</a>
     </div> <!-- form-group// --> 
-    <div class="form-group"> 
-    <!--<div class="checkbox">
-      <label> <input type="checkbox"> Zapamiętaj   </label>-->
-    </div> <!-- checkbox .// -->
+    <div class="form-group">
+    <label>Potwierdź hasło:</label>
+        <input class="form-control" placeholder="******" type="password"  name="password">
+    </div> 
     </div> <!-- form-group// -->  
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block w-75 mr-auto ml-auto" name="login"> Login  </button>
@@ -33,4 +40,4 @@
 </article>
 </div>
 </div>
-</body>
+</body> 

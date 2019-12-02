@@ -3,18 +3,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="p-0 m-0">
 <?php 
 SESSION_START();
-echo ($_SESSION['username']);
-var_dump($_SESSION['username']);
 include 'nav.php';
 ?>
 
 
 <!-- Karuzela Bootstrap -->
-<div class="container mt-2">
+<div class="row sm-w-100 w-100 mr-auto ml-auto m-0 p-0">
     <div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -47,8 +46,7 @@ include 'nav.php';
 <!-- Koniec Karuzeli -->
 <!-- Tu będąkafelki z ikonkami -->
 
-<div class="container">
-    <div class="row">
+    <div class="row w-75 mr-auto ml-auto">
         <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Komputery</h3></a></div>
         <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Karty graficzne</h3></a></div>
         <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Procesory</h3></a></div>
@@ -59,13 +57,13 @@ include 'nav.php';
         <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Obudowy</h3></a></div>
         <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Płyty główne</h3></a></div>
     </div>
-</div>
+
 <!-- Koniec kafelek -->
 
 <!-- Nasze propozycje: -->
 <!-- Koniec naszych propozycji -->
 <div class="row m-0 p-0 text-center">
-<h1 class="mr-auto ml-auto p-2">Nasze propozycje:</h1>
+<h1 class="mr-auto ml-auto m-0 p-2">Nasze propozycje:</h1>
 </div>
 
 <?php
@@ -80,13 +78,13 @@ if ($result->num_rows > 0) {
         echo "<a href='#' class='text-decoration-none row border text-dark border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
-          <h2 class='text-body'>$row[Nazwa]</h2>
+          <h1 class='text-body p-3'>$row[Nazwa]</h1>
           </div>
          
-          <div class='row mt-2 mb-2 m-0 border-left'>
+          <div class='row w-100 mt-2 mb-2 mr-auto ml-auto m-0 border-left'>
          
-          <div class='col-sm-3'>
-          <img src='$row[Zdjecie]' class='w-75 m-3'>
+          <div class='col-sm-3 w-100 p-4'>
+          <img src='$row[Zdjecie]' class='w-100'>
           </div>
           
           <div class='col-sm-6 pl-4 pr-0'>
@@ -101,7 +99,10 @@ if ($result->num_rows > 0) {
             
             </div>
 
-            <div class='col-sm-3 m-0 p-0'><h3 class='text-info'>$row[Cena] zł </h3></div>
+            <div class='col-sm-3 m-0 p-3'>
+            <h3 class='text-info text-center '>$row[Cena] zł </h3>
+            <button name='addProduct' class='btn btn-primary btn-lg w-100 m-3 mr-auto ml-auto'><i class='fa fa-cart-plus pr-2'></i><b>Do koszyka</b></dutton>
+            </div>
             </div>
           
           
@@ -118,13 +119,13 @@ if ($result->num_rows > 0) {
         echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
-          <h2 class='text-body'>$row[Nazwa]</h2>
+          <h1 class='text-body p-3'>$row[Nazwa]</h1>
           </div>
          
-          <div class='row mt-2 mb-2 m-0 border-left'>
+          <div class='row w-100 mt-2 mb-2 mr-auto ml-auto m-0 border-left'>
          
           <div class='col-sm-3'>
-          <img src='$row[Zdjecie]' class='w-75 m-3'>
+          <img src='$row[Zdjecie]' class='w-100 m-3'>
           </div>
           
           <div class='col-sm-6 pl-4 pr-0'>
@@ -137,7 +138,10 @@ if ($result->num_rows > 0) {
             
             </div>
 
-            <div class='col-sm-3 m-0 p-0'><h3 class='text-info'>$row[Cena] zł </h3></div>
+            <div class='col-sm-3 m-0 p-3 w-100'>
+            <h3 class='text-info text-center '>$row[Cena] zł </h3>
+            <button name='addProduct' class='btn btn-primary btn-lg w-100 m-3 mr-auto ml-auto'><i class='fa fa-cart-plus pr-2'></i><b>Do koszyka</b></dutton>
+            </div>
             </div>
           
           
@@ -154,13 +158,13 @@ if ($result->num_rows > 0) {
         echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
-          <h2 class='text-body'>$row[Nazwa]</h2>
+          <h1 class='text-body p-3'>$row[Nazwa]</h1>
           </div>
          
-          <div class='row mt-2 mb-2 m-0 border-left'>
+          <div class='row w-100 mt-2 mb-2 mr-auto ml-auto m-0 border-left'>
          
           <div class='col-sm-3'>
-          <img src='$row[Zdjecie]' class='w-75 m-3'>
+          <img src='$row[Zdjecie]' class='w-100 m-3'>
           </div>
           
           <div class='col-sm-6 pl-4 pr-0'>
@@ -169,11 +173,14 @@ if ($result->num_rows > 0) {
             
             <p class='p-0 m-0'><b>Ilość rdzeni:</b> $row[IloscRdzeni]</p>
             
-            <p class='p-0 m-0'><b>Taktowanie:</b> $row[Taktowanie] MHz</p>
+            <p class='p-0 m-0'><b>Taktowanie:</b> $row[Taktowanie]</p>
             
             </div>
 
-            <div class='col-sm-3 m-0 p-0'><h3 class='text-info'>$row[Cena] zł </h3></div>
+            <div class='col-sm-3 m-0 p-3 w-100'>
+            <h3 class='text-info text-center '>$row[Cena] zł </h3>
+            <button name='addProduct' class='btn btn-primary btn-lg w-100 m-3 mr-auto ml-auto'><i class='fa fa-cart-plus pr-2'></i><b>Do koszyka</b></dutton>
+            </div>
             </div>
           
           
@@ -190,13 +197,13 @@ if ($result->num_rows > 0) {
         echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
-          <h2 class='text-body'>$row[Nazwa]</h2>
+          <h1 class='text-body p-3'>$row[Nazwa]</h1>
           </div>
          
           <div class='row mt-2 mb-2 m-0 border-left'>
          
           <div class='col-sm-3'>
-          <img src='$row[Zdjecie]' class='w-75 m-3'>
+          <img src='$row[Zdjecie]' class='w-100 m-3'>
           </div>
           
           <div class='col-sm-6 pl-4 pr-0'>
@@ -205,11 +212,14 @@ if ($result->num_rows > 0) {
             
             <p class='p-0 m-0'><b>Pojemniść:</b> $row[Pojemnosc]</p>
             
-            <p class='p-0 m-0'><b>Częstotliwość:</b> $row[Czestotliwosc] MHz</p>
+            <p class='p-0 m-0'><b>Częstotliwość:</b> $row[Czestotliwosc]</p>
             
             </div>
 
-            <div class='col-sm-3 m-0 p-0'><h3 class='text-info'>$row[Cena] zł </h3></div>
+            <div class='col-sm-3 m-0 p-3'>
+            <h3 class='text-info text-center '>$row[Cena] zł </h3>
+            <button name='addProduct' class='btn btn-primary btn-lg w-100 m-3 mr-auto ml-auto'><i class='fa fa-cart-plus pr-2'></i><b>Do koszyka</b></dutton>
+            </div>
             </div>
           
           
