@@ -47,15 +47,15 @@ include 'nav.php';
 <!-- Tu będąkafelki z ikonkami -->
 
     <div class="row w-75 mr-auto ml-auto">
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Komputery</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Karty graficzne</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Procesory</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">RAM</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">SSD</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">HDD</h3></a></div> 
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Zasilacze</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Obudowy</h3></a></div>
-        <div href="#" class="col-sm-4"><a href="#"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Płyty główne</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="komputery.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Komputery</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="kartyGraficzne.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Karty graficzne</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="procesory.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Procesory</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="ramy.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">RAM</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="dyski.php?typ=SSD"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Dyski SSD</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="dyski.php?typ=HDD"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Dyski HDD</h3></a></div> 
+        <div href="#" class="col-sm-4"><a href="zasilacze.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Zasilacze</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="obudowy.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Obudowy</h3></a></div>
+        <div href="#" class="col-sm-4"><a href="plytyGlowne.php"><h3 class=" border border-info rounded text-center p-2 mt-2 w-100">Płyty główne</h3></a></div>
     </div>
 
 <!-- Koniec kafelek -->
@@ -69,13 +69,13 @@ include 'nav.php';
 <?php
 include_once 'connection.php';
 
-$sql = "SELECT g.Nazwa, g.Cena, g.TaktowaniePamieci, g.Cena, g.TaktowaniePamieci, g.TypPamieci, g.WielkoscPamieci, g.TypZlacza, g.zdjecie FROM kartygraficzne g LIMIT 1";
+$sql = "SELECT ID, Nazwa, Cena, TaktowaniePamieci, Cena, TaktowaniePamieci, TypPamieci, WielkoscPamieci, TypZlacza, zdjecie FROM kartygraficzne  LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<a href='#' class='text-decoration-none row border text-dark border-info shadow rounded mr-2 ml-2'>
+        echo "<a href='kartyGraficzne.php?id=".$row['ID']."' class='text-decoration-none row border text-dark border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
           <h1 class='text-body p-3'>$row[Nazwa]</h1>
@@ -109,14 +109,14 @@ if ($result->num_rows > 0) {
           </a> <br> ";
     }
 }        
-$sql = "SELECT `Nazwa`, `Cena`, `Standard`, `Moc`, `Zdjecie` FROM zasilacze z LIMIT 1";
+$sql = "SELECT ID, Nazwa, Cena, Standard, Moc, Zdjecie FROM zasilacze z LIMIT 1";
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
+        echo "<a href='zasilacze.php?id=".$row['ID']."' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
           <h1 class='text-body p-3'>$row[Nazwa]</h1>
@@ -149,13 +149,13 @@ if ($result->num_rows > 0) {
     }
 }  
 
-$sql = "SELECT Nazwa, Cena, Socket, IloscRdzeni, Taktowanie, Zdjecie FROM procesory LIMIT 1";
+$sql = "SELECT ID, Nazwa, Cena, Socket, IloscRdzeni, Taktowanie, Zdjecie FROM procesory LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
+        echo "<a href='procesory.php?id=".$row['ID']."' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
           <h1 class='text-body p-3'>$row[Nazwa]</h1>
@@ -188,13 +188,13 @@ if ($result->num_rows > 0) {
     }
 }
 
-$sql = "SELECT Nazwa, Cena, Czestotliwosc, Typ, Pojemnosc, Zdjecie FROM ramy LIMIT 1";
+$sql = "SELECT ID, Nazwa, Cena, Czestotliwosc, Typ, Pojemnosc, Zdjecie FROM ramy LIMIT 1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<a href='#' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
+        echo "<a href='ramy.php?id=".$row['ID']."' class='text-decoration-none row border text-dark row border border-info shadow rounded mr-2 ml-2'>
          
          <div class='col-md-12'>
           <h1 class='text-body p-3'>$row[Nazwa]</h1>
@@ -210,7 +210,7 @@ if ($result->num_rows > 0) {
           
             <p class='p-0 m-0'><b>Typ:</b> $row[Typ]</p>
             
-            <p class='p-0 m-0'><b>Pojemniść:</b> $row[Pojemnosc]</p>
+            <p class='p-0 m-0'><b>Pojemność:</b> $row[Pojemnosc]</p>
             
             <p class='p-0 m-0'><b>Częstotliwość:</b> $row[Czestotliwosc]</p>
             
